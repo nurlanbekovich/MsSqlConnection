@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fade27cb-912d-4e0d-b52d-38fbe1a581c6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     PurchaseMaterials."ID" AS PurchaseMaterials_ID,
+     PurchaseMaterials."Kol_syrya_zakupke" AS PurchaseMaterials_Kol_syrya_zakupke,
+     PurchaseMaterials."Summa_zak_syrya" AS PurchaseMaterials_Summa_zak_syrya,
+     PurchaseMaterials."Date_zak_syrya" AS PurchaseMaterials_Date_zak_syrya,
+     RawMaterials."Naimenovaniye_Syrya" AS RawMaterials_Naimenovaniye_Syrya,
+     Employees."Name" AS Employees_Name
+FROM
+     "dbo"."RawMaterials" RawMaterials INNER JOIN "dbo"."PurchaseMaterials" PurchaseMaterials ON RawMaterials."ID" = PurchaseMaterials."RawMaterial"
+     INNER JOIN "dbo"."Employees" Employees ON PurchaseMaterials."Pers_zak_syrya" = Employees."ID"]]>
+	</queryString>
+	<field name="PurchaseMaterials_ID" class="java.lang.Integer"/>
+	<field name="PurchaseMaterials_Kol_syrya_zakupke" class="java.lang.Double"/>
+	<field name="PurchaseMaterials_Summa_zak_syrya" class="java.math.BigDecimal"/>
+	<field name="PurchaseMaterials_Date_zak_syrya" class="java.sql.Date"/>
+	<field name="RawMaterials_Naimenovaniye_Syrya" class="java.lang.String"/>
+	<field name="Employees_Name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="802" height="102" uuid="ffa9d382-ad7c-44dc-8e9c-6367e9abf030"/>
+				<imageExpression><![CDATA["C:\\Users\\Aidin\\Documents\\3 курс\\осений семестр\\бд\\доп проект\\bakery\\bakery-orange-emblems-set_1284-36171 — копия.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="242" y="41" width="396" height="49" backcolor="#006666" uuid="a9326ef6-74af-440c-990c-12fe35e5f5a0"/>
+				<textElement>
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[Закуп сырья]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="132" height="18" forecolor="#000000" uuid="61e91eaa-63e3-4dce-a84a-5e2db2845ab0"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="132" y="0" width="132" height="18" forecolor="#000000" uuid="c80aedd7-33f2-4a5a-bc85-7ec6b2b5f5f0"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Кол-во]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="264" y="0" width="132" height="18" forecolor="#000000" uuid="5195c003-08e8-4cfb-ae80-59d06cf53c0e"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Сумма]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="396" y="0" width="132" height="18" forecolor="#000000" uuid="cd0ee7a5-89b0-4daf-804f-ecd7b89a32e4"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Дата]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="528" y="0" width="132" height="18" forecolor="#000000" uuid="2c985a22-af1c-48bf-b79f-9548f7b7172a"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Сырье]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="660" y="0" width="132" height="18" forecolor="#000000" uuid="53bb82de-6380-4d67-bed1-24467a57cefe"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Сотрудник]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="77d9501f-194d-4528-ad8c-f7cbaa228833"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="132" height="18" uuid="2847cc10-cf87-4c85-94ae-da6e0da22d4d"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PurchaseMaterials_ID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="132" y="0" width="132" height="18" uuid="9dd06eab-9868-4247-a2af-f3a6d7a5e638"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PurchaseMaterials_Kol_syrya_zakupke}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="264" y="0" width="132" height="18" uuid="22f2000f-0fbb-47a8-aede-326c7f5d72c0"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PurchaseMaterials_Summa_zak_syrya}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="396" y="0" width="132" height="18" uuid="5f4e7546-868b-438b-94ce-bcc632bac8bb"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PurchaseMaterials_Date_zak_syrya}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="528" y="0" width="132" height="18" uuid="5f0b6b36-b6cb-4bbf-9fbd-bf3ef05921fe"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RawMaterials_Naimenovaniye_Syrya}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="660" y="0" width="132" height="18" uuid="b50d4bff-8d81-4148-9c66-ab4cc9b56854"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Employees_Name}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="2e02ec35-67f3-41d5-afff-fcb2828e5987"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#006666" uuid="81239354-99b8-4ea3-a2ee-6d08bed0957c"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="7329caee-98f9-4284-a632-f4e93320b1f6"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="df653da3-6c04-4d53-8c71-4a6cce8bd823"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="dd785038-d86a-45d3-9872-343d2b480055"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

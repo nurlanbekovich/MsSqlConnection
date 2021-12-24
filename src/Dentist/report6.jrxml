@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="637eb30f-363c-4339-a7ca-caabcb6b65d7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     Appointment_Doctor."ID" AS Appointment_Doctor_ID,
+     Appointment_Doctor."Дата" AS Appointment_Doctor_Дата,
+     Appointment_Doctor."Цена_за_услугу" AS Appointment_Doctor_Цена_за_услугу,
+     Appointment_Doctor."Посещение" AS Appointment_Doctor_Посещение,
+     Table_doctor."ФИО" AS Table_doctor_ФИО,
+     Table_client."ФИО" AS Table_client_ФИО,
+     Table_diagnosis."Диагноз" AS Table_diagnosis_Диагноз
+FROM
+     "dbo"."Table_doctor" Table_doctor INNER JOIN "dbo"."Appointment_Doctor" Appointment_Doctor ON Table_doctor."ID" = Appointment_Doctor."Леч_врач"
+     INNER JOIN "dbo"."Table_client" Table_client ON Appointment_Doctor."ФИО" = Table_client."id"
+     INNER JOIN "dbo"."Table_diagnosis" Table_diagnosis ON Appointment_Doctor."Диагноз" = Table_diagnosis."id"]]>
+	</queryString>
+	<field name="Appointment_Doctor_ID" class="java.lang.Integer"/>
+	<field name="Table_client_ФИО" class="java.lang.String"/>
+	<field name="Appointment_Doctor_Дата" class="java.sql.Timestamp"/>
+	<field name="Appointment_Doctor_Цена_за_услугу" class="java.lang.Integer"/>
+	<field name="Appointment_Doctor_Посещение" class="java.lang.Integer"/>
+	<field name="Table_diagnosis_Диагноз" class="java.lang.String"/>
+	<field name="Table_doctor_ФИО" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="551" height="70" backcolor="#006666" uuid="fcebc303-c296-4924-be7d-f67cb64390ab"/>
+				<staticText>
+					<reportElement style="Title" x="56" y="29" width="455" height="31" uuid="f852c824-351c-4327-a225-20ffde4d2bb3"/>
+					<textElement>
+						<font size="24" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Ежедневный  отчет посещаемости пациентов]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="a7f6cd76-e46b-4a39-a3e5-b40687e9278d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="79" height="15" uuid="7aa7aaa5-7aaa-4c13-b95e-93134c3a03f2"/>
+				<text><![CDATA[Appointment_Doctor_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="79" y="19" width="79" height="15" uuid="453fb786-600f-464e-b750-7a229cea2ae9"/>
+				<text><![CDATA[Table_client_ФИО]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="158" y="19" width="79" height="15" uuid="22953645-1270-4d4b-921b-e97af6855760"/>
+				<text><![CDATA[Appointment_Doctor_Дата]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="237" y="19" width="79" height="15" uuid="4eb0f869-53e5-4cfd-9648-6c681f17cf15"/>
+				<text><![CDATA[Appointment_Doctor_Цена_за_услугу]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="316" y="19" width="79" height="15" uuid="31ea7ff9-7976-4bbe-ae48-ebc76c37626f"/>
+				<text><![CDATA[Appointment_Doctor_Посещение]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="395" y="19" width="79" height="15" uuid="745ce878-723c-4616-8a7a-50670a15ebb8"/>
+				<text><![CDATA[Table_diagnosis_Диагноз]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="474" y="19" width="79" height="15" uuid="1aea0d73-93d4-46c2-a710-e365c6d542eb"/>
+				<text><![CDATA[Table_doctor_ФИО]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="e1ba0596-b8aa-42fb-949c-7bc38905f932"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="79" height="15" uuid="729476a1-c955-49cd-a2a9-0df3ad5c3f04"/>
+				<textFieldExpression><![CDATA[$F{Appointment_Doctor_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="79" y="0" width="79" height="15" uuid="617ef56c-8df7-4bc5-a749-3f85f48c4cf3"/>
+				<textFieldExpression><![CDATA[$F{Table_client_ФИО}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="158" y="0" width="79" height="15" uuid="e4215207-f082-49f2-8212-c67781b611a5"/>
+				<textFieldExpression><![CDATA[$F{Appointment_Doctor_Дата}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="237" y="0" width="79" height="15" uuid="b7852ab7-541b-4375-b1cc-92ac66ed3ce4"/>
+				<textFieldExpression><![CDATA[$F{Appointment_Doctor_Цена_за_услугу}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="316" y="0" width="79" height="15" uuid="140986fc-7c94-44cc-b2c3-f7f73e8fe6a8"/>
+				<textFieldExpression><![CDATA[$F{Appointment_Doctor_Посещение}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="395" y="0" width="79" height="15" uuid="b9bcd0fc-4429-4bd9-928e-1c376419ddb3"/>
+				<textFieldExpression><![CDATA[$F{Table_diagnosis_Диагноз}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="474" y="0" width="79" height="15" uuid="327ad971-32d1-490e-a085-0f36400d7429"/>
+				<textFieldExpression><![CDATA[$F{Table_doctor_ФИО}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fc297a6a-2ded-4107-aa53-2289829be2f9"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="85d78342-f3b1-4e26-9167-f718a01980b7"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="44fde9af-47d3-4452-bd4c-111499a5a8e5"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="207478e8-cf5a-469d-b836-f3ba2488d2fd"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

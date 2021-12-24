@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8dbce2c3-1bed-4d3c-a10a-563a1d7986f3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     TOP(1000)[id],
+     [ФИО],
+     [Посещение_клиента],
+     [Возраст],
+     [Адрес],
+     [Номер_телефона],
+     [Диагноз_клиента],
+     [Цена],
+     [Леч_Врач],
+     [Дата]
+FROM
+     "Table_client" Table_client]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="ФИО" class="java.lang.String"/>
+	<field name="Посещение_клиента" class="java.lang.Integer"/>
+	<field name="Возраст" class="java.lang.Integer"/>
+	<field name="Адрес" class="java.lang.String"/>
+	<field name="Номер_телефона" class="java.lang.String"/>
+	<field name="Диагноз_клиента" class="java.lang.Integer"/>
+	<field name="Цена" class="java.lang.Integer"/>
+	<field name="Леч_Врач" class="java.lang.Integer"/>
+	<field name="Дата" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="0" width="595" height="64" uuid="e06abc6c-d6f8-4134-b5eb-2fe58318437c"/>
+				<imageExpression><![CDATA["wood.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="263" height="33" uuid="67e526b8-f345-4daa-aa26-922495c050d6"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Wood Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="39" width="200" height="22" forecolor="#FFFFFF" uuid="4e9655d9-2888-410c-a929-9b5ba1a15e78"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Wood SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="bd85a8d6-92b9-48e4-8f08-ba899292a8ca"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="55" height="15" uuid="921ffd9b-fd45-4313-949e-7670691ae5d3"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="55" y="19" width="55" height="15" uuid="3c7f65a5-c9b2-430c-80de-072d1eeefdac"/>
+				<text><![CDATA[ФИО]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="110" y="19" width="55" height="15" uuid="21101c9c-f486-4b29-a75e-a67fad605cc6"/>
+				<text><![CDATA[Посещение_клиента]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="165" y="19" width="55" height="15" uuid="26574842-15d8-4eaf-a662-0af65015de0e"/>
+				<text><![CDATA[Возраст]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="220" y="19" width="55" height="15" uuid="7787537e-dd6d-4e58-8fdf-9205be9fb8da"/>
+				<text><![CDATA[Адрес]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="275" y="19" width="55" height="15" uuid="a66ba5a5-7e67-42b0-b5d0-dbf66789d815"/>
+				<text><![CDATA[Номер_телефона]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="330" y="19" width="55" height="15" uuid="2b2533a9-a509-43a9-8a9b-fceb3c144cbc"/>
+				<text><![CDATA[Диагноз_клиента]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="385" y="19" width="55" height="15" uuid="60837443-aa02-4ff5-b8c6-d9a8d56814d2"/>
+				<text><![CDATA[Цена]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="440" y="19" width="55" height="15" uuid="59b3354c-ffb1-4b48-84a9-6584c67cb54c"/>
+				<text><![CDATA[Леч_Врач]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="495" y="19" width="55" height="15" uuid="80b0f571-c467-43b4-9351-e1a23ae87774"/>
+				<text><![CDATA[Дата]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="2b8192f3-0937-44c1-ab8e-8992a724eff7"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="55" height="15" uuid="1986123c-f956-4128-9b34-83ad29f9d054"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="55" y="0" width="55" height="15" uuid="53490c2a-1beb-4701-9239-e2fbc05cf30d"/>
+				<textFieldExpression><![CDATA[$F{ФИО}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="110" y="0" width="55" height="15" uuid="8f06671d-d0fa-491d-b8fe-748406a55755"/>
+				<textFieldExpression><![CDATA[$F{Посещение_клиента}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="165" y="0" width="55" height="15" uuid="12668829-8a62-4d19-833c-00bd35e0b78e"/>
+				<textFieldExpression><![CDATA[$F{Возраст}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="220" y="0" width="55" height="15" uuid="4c5b5af2-983a-4a4b-890d-35333ee9c302"/>
+				<textFieldExpression><![CDATA[$F{Адрес}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="275" y="0" width="55" height="15" uuid="15b6895f-94c3-4182-92c8-4463df1e6fd4"/>
+				<textFieldExpression><![CDATA[$F{Номер_телефона}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="330" y="0" width="55" height="15" uuid="e5be770e-3c63-4070-91cc-b8b499cfd709"/>
+				<textFieldExpression><![CDATA[$F{Диагноз_клиента}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="385" y="0" width="55" height="15" uuid="f06f0737-868e-4695-b6cd-6f6f53f54860"/>
+				<textFieldExpression><![CDATA[$F{Цена}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="440" y="0" width="55" height="15" uuid="3af200d4-3b9a-4707-b56a-4990a471d9af"/>
+				<textFieldExpression><![CDATA[$F{Леч_Врач}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="495" y="0" width="55" height="15" uuid="4cb5009a-1da8-4416-b2c9-73bdd186529d"/>
+				<textFieldExpression><![CDATA[$F{Дата}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="5cfa7bd4-b629-41a7-9be0-f037b0bd8987"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="6ae8304f-7c0f-4967-abcd-02db0e67f79f"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="c757c877-c30c-4760-8bcb-8040e7f057f8"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="b406592e-24c8-4ab0-b1b4-3fc6276b373e"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

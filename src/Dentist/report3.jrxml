@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="67ad1aaa-6a6e-4f24-a89e-655199bf0571">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     TOP(1000)[id],
+     [ФИО],
+     [Посещение_клиента],
+     [Возраст],
+     [Адрес],
+     [Номер_телефона],
+     [Диагноз_клиента],
+     [Цена],
+     [Леч_Врач],
+     [Дата]
+FROM
+     "Table_client" Table_client]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="ФИО" class="java.lang.String"/>
+	<field name="Посещение_клиента" class="java.lang.Integer"/>
+	<field name="Возраст" class="java.lang.Integer"/>
+	<field name="Адрес" class="java.lang.String"/>
+	<field name="Номер_телефона" class="java.lang.String"/>
+	<field name="Диагноз_клиента" class="java.lang.Integer"/>
+	<field name="Цена" class="java.lang.Integer"/>
+	<field name="Дата" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="377" y="29" width="61" height="15" uuid="8dade4ce-a0b2-49f0-8e08-fe3baee74636"/>
+				<text><![CDATA[Диагноз]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="10" y="45" width="555" height="1" uuid="eace24d0-2bce-42d8-ad46-069919287b82"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="10" y="25" width="555" height="1" uuid="89b76855-3b4e-4aed-9233-f835a0d25d9b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="382" y="10" width="61" height="15" uuid="5df0037a-0e23-4e62-be44-717345025068"/>
+				<textFieldExpression><![CDATA[$F{Диагноз_клиента}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="443" y="29" width="61" height="15" uuid="eaf60f06-fa62-4966-a447-afb32d99ddfe"/>
+				<text><![CDATA[Цена]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="128" y="10" width="61" height="15" uuid="9d23edf2-c300-4ed5-ab66-af30115f920f"/>
+				<textFieldExpression><![CDATA[$F{Посещение_клиента}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="318" y="29" width="61" height="15" uuid="04030444-4aee-4280-8d2f-e7e0f9890305"/>
+				<text><![CDATA[Номер]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="440" y="10" width="61" height="15" uuid="f46cce45-38af-4790-9b45-c6ff09a455af"/>
+				<textFieldExpression><![CDATA[$F{Цена}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="190" y="10" width="61" height="15" uuid="c8bd8eac-c718-4576-b712-4475897db159"/>
+				<textFieldExpression><![CDATA[$F{Возраст}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="58" y="10" width="61" height="15" uuid="aa0a127f-f8fd-488c-89da-39b3b2f05a80"/>
+				<textFieldExpression><![CDATA[$F{ФИО}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="500" y="29" width="61" height="15" uuid="c994b7af-6f54-4d5e-97e0-00675abb4419"/>
+				<text><![CDATA[Дата]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="10" y="13" width="555" height="1" uuid="efe2ff8a-1ec9-4a48-8388-1af3b7b0b09a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="192" y="29" width="61" height="15" uuid="aa7fe565-7f53-4543-bfbd-54ff2a3586cf"/>
+				<text><![CDATA[Возраст]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="10" y="10" width="61" height="15" uuid="467d8f88-f1ce-459f-ab71-2f031fd24d37"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="10" y="29" width="61" height="15" uuid="2556fb4a-3665-4c89-919c-40183f6eebbe"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="60" y="29" width="61" height="15" uuid="9b56d4c8-3724-4e0a-ae0b-60eb6a496c7f"/>
+				<text><![CDATA[ФИО]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="501" y="10" width="64" height="15" uuid="e526f943-01d6-46a3-9973-3fd5381f1fba"/>
+				<textFieldExpression><![CDATA[$F{Дата}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="246" y="10" width="61" height="15" uuid="b823d482-237a-4e9c-8b7d-2ad6f4a76919"/>
+				<textFieldExpression><![CDATA[$F{Адрес}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="315" y="10" width="61" height="15" uuid="a5ad54cc-19a6-4e88-a25e-9ae55213ae28"/>
+				<textFieldExpression><![CDATA[$F{Номер_телефона}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="120" y="29" width="70" height="15" uuid="8abcaa2f-7e1e-4076-9fdb-c44858935fe3"/>
+				<text><![CDATA[Посещение]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="247" y="29" width="61" height="15" uuid="c74fb713-4ba1-4703-a77b-2d35892547fb"/>
+				<text><![CDATA[Адрес]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
